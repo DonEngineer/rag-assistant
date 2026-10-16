@@ -1,0 +1,2 @@
+{"question": "What is chunk overlap and why does it matter?", "expected_points": ["overlap repeats tokens across adjacent chunks", "prevents splitting key information at boundaries", "typical values are 10-20% of chunk size"]}
+{"question": "When should I choose pgvector over Chroma?", "expected_points": ["pgvector fits existing Postgres infrastructure", "Chroma is simpler for local demos", "pgvector scales better for production workloads"]}
