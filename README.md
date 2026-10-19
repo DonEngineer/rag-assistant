@@ -93,7 +93,6 @@ data/sample_docs/ Sample documents for demo and evals
 | M1 Project scaffold, README, handoff docs | ✅ Done |
 | M2 Ingestion pipeline (PDF/Markdown → chunks) | ✅ Done |
 | M3 Embeddings + Chroma vector store | ⬜ Next |
-| M3 Embeddings + Chroma vector store | ⬜ |
 | M4 Agentic retrieval + cited answers + FastAPI | ⬜ |
 | M5 Streamlit demo UI | ⬜ |
 | M6 Eval harness (faithfulness, answer relevance) | ⬜ |
