@@ -95,8 +95,6 @@ data/sample_docs/ Sample documents for demo and evals
 | M3 Embeddings + Chroma vector store | ✅ Done |
 | M4 Agentic retrieval + cited answers + FastAPI | ✅ Done |
 | M5 Streamlit demo UI | ⬜ Next |
-| M4 Agentic retrieval + cited answers + FastAPI | ⬜ |
-| M5 Streamlit demo UI | ⬜ |
 | M6 Eval harness (faithfulness, answer relevance) | ⬜ |
 | M7 Polish: demo, docs, release | ⬜ |
 
