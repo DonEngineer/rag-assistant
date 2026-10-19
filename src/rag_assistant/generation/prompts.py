@@ -1,4 +1,4 @@
-"""Prompts and citation formatting for grounded answers. (Milestone M4)"""
+"""Prompts and citation formatting for grounded answers."""
 
 from __future__ import annotations
 
@@ -32,5 +32,26 @@ Question: {question}
 
 
 def format_citations(chunks: list[Chunk]) -> list[Citation]:
-    """Build [n]-style citations from the chunks used in an answer. (M4)"""
-    raise NotImplementedError("M4")
+    """Build citations for the chunks used in an answer.
+
+    ``source`` carries a human-readable reference such as ``"guide.md, p.3"``
+    or ``"guide.md § Install"``; ``excerpt`` holds the first 200 characters
+    of the chunk.
+    """
+    citations = []
+    for chunk in chunks:
+        page = chunk.metadata.get("page")
+        heading = chunk.metadata.get("heading")
+        if page is not None:
+            reference = f"{chunk.source}, p.{page}"
+        elif heading:
+            reference = f"{chunk.source} § {heading}"
+        else:
+            reference = chunk.source
+        excerpt = chunk.text[:200]
+        if len(chunk.text) > 200:
+            excerpt += "…"
+        citations.append(
+            Citation(chunk_id=chunk.chunk_id, source=reference, excerpt=excerpt)
+        )
+    return citations
