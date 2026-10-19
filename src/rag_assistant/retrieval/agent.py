@@ -49,9 +49,7 @@ def build_agent(vector_store, llm, max_rewrites: int = 2, top_k: int = 5):
         kept = []
         for chunk in state["chunks"]:
             verdict = (
-                llm.invoke(
-                    GRADE_PROMPT.format(question=state["question"], chunk=chunk.text)
-                )
+                llm.invoke(GRADE_PROMPT.format(question=state["question"], chunk=chunk.text))
                 .strip()
                 .lower()
             )
@@ -71,8 +69,7 @@ def build_agent(vector_store, llm, max_rewrites: int = 2, top_k: int = 5):
             for i, chunk in enumerate(state["chunks"])
         )
         prompt = (
-            f"{QA_SYSTEM_PROMPT}\n\nContext:\n{context}\n\n"
-            f"Question: {state['question']}\nAnswer:"
+            f"{QA_SYSTEM_PROMPT}\n\nContext:\n{context}\n\nQuestion: {state['question']}\nAnswer:"
         )
         return {
             "answer": llm.invoke(prompt).strip(),
@@ -104,7 +101,8 @@ def build_agent(vector_store, llm, max_rewrites: int = 2, top_k: int = 5):
 def ask(question: str, agent) -> dict:
     """Run the agent on a question.
 
-    Returns ``{"answer": str, "citations": list[Citation], "chunks_used": int}``.
+    Returns ``{"answer": str, "citations": list[Citation], "chunks_used": int,
+    "chunks": list[Chunk]}``.
     """
     final = agent.invoke(
         {"question": question, "chunks": [], "rewrites": 0, "answer": "", "citations": []}
@@ -113,4 +111,5 @@ def ask(question: str, agent) -> dict:
         "answer": final["answer"],
         "citations": final["citations"],
         "chunks_used": len(final["chunks"]),
+        "chunks": final["chunks"],
     }

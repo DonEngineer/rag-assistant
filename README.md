@@ -95,8 +95,8 @@ data/sample_docs/ Sample documents for demo and evals
 | M3 Embeddings + Chroma vector store | ✅ Done |
 | M4 Agentic retrieval + cited answers + FastAPI | ✅ Done |
 | M5 Streamlit demo UI | ✅ Done |
-| M6 Eval harness (faithfulness, answer relevance) | ⬜ Next |
-| M7 Polish: demo, docs, release | ⬜ |
+| M6 Eval harness (faithfulness, answer relevance) | ✅ Done |
+| M7 Polish: demo, docs, release | ⬜ Next |
 
 Stretch goals: pgvector backend, hybrid search (BM25 + dense), reranking, one-command Docker Compose demo.
 
@@ -108,6 +108,12 @@ Stretch goals: pgvector backend, hybrid search (BM25 + dense), reranking, one-co
 - **Answer relevance** — does the answer actually address the question?
 
 Scored by the same local LLM, so the whole loop stays free and offline.
+
+Run it with:
+
+```bash
+python -m rag_assistant.eval.cli evals/data/sample_eval.jsonl
+```
 
 ## Tech stack
 
