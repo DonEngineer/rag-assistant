@@ -69,6 +69,32 @@ streamlit run app/streamlit_app.py
 
 Copy `.env.example` to `.env` to override models, ports, or the Chroma persist directory. Set `OPENAI_API_KEY` to optionally compare against OpenAI models — it is never required.
 
+## Demo walkthrough
+
+Three terminals, everything local:
+
+```bash
+# Terminal 1 — models (skip if Ollama is already running)
+ollama serve
+
+# Terminal 2 — API
+uvicorn rag_assistant.api.main:app --reload
+
+# Terminal 3 — UI
+streamlit run app/streamlit_app.py
+```
+
+1. In the sidebar, upload a PDF or Markdown file and click **Ingest**.
+2. Ask a question, e.g. "What is chunk overlap?".
+3. Read the cited answer, then expand **Citations** to see the exact source chunks.
+4. Ask something the documents don't cover and watch the agent abstain instead of hallucinating.
+
+To check quality instead of vibes:
+
+```bash
+python -m rag_assistant.eval.cli evals/data/sample_eval.jsonl
+```
+
 ## Project structure
 
 ```
@@ -96,7 +122,7 @@ data/sample_docs/ Sample documents for demo and evals
 | M4 Agentic retrieval + cited answers + FastAPI | ✅ Done |
 | M5 Streamlit demo UI | ✅ Done |
 | M6 Eval harness (faithfulness, answer relevance) | ✅ Done |
-| M7 Polish: demo, docs, release | ⬜ Next |
+| M7 Polish: demo, docs, release | ✅ Done |
 
 Stretch goals: pgvector backend, hybrid search (BM25 + dense), reranking, one-command Docker Compose demo.
 

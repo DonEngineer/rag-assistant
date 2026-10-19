@@ -30,7 +30,7 @@ vector search, agentic orchestration (LangGraph), API design, and evals.
 ## Milestones
 
 M1 scaffold ✅ → M2 ingestion ✅ → M3 embeddings+Chroma ✅ → M4 agent+API ✅ →
-M5 UI ✅ → M6 evals ✅ → M7 polish. See README roadmap for details.
+M5 UI ✅ → M6 evals ✅ → M7 polish ✅. All milestones complete (v0.1.0).
 
 ## Conventions
 
