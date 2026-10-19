@@ -94,8 +94,8 @@ data/sample_docs/ Sample documents for demo and evals
 | M2 Ingestion pipeline (PDF/Markdown → chunks) | ✅ Done |
 | M3 Embeddings + Chroma vector store | ✅ Done |
 | M4 Agentic retrieval + cited answers + FastAPI | ✅ Done |
-| M5 Streamlit demo UI | ⬜ Next |
-| M6 Eval harness (faithfulness, answer relevance) | ⬜ |
+| M5 Streamlit demo UI | ✅ Done |
+| M6 Eval harness (faithfulness, answer relevance) | ⬜ Next |
 | M7 Polish: demo, docs, release | ⬜ |
 
 Stretch goals: pgvector backend, hybrid search (BM25 + dense), reranking, one-command Docker Compose demo.
